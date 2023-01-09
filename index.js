@@ -24,3 +24,22 @@ var printAge = function(){
 }
 var display = printAge.bind(Student)
 display()
+
+// function currying
+// method 1
+var multiply = function(x,y){
+    console.log(x*y)
+}
+var multiplyByTwo = multiply.bind(this,2)
+multiplyByTwo(6)
+
+// method 2 using closures
+var product = function(x){
+    return function(y){
+        console.log(x*y)
+    }
+}
+var ans = product(2)
+var ans2 = product(5)
+ans(5)
+ans2(10)
